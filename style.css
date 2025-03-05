@@ -62,10 +62,19 @@ h1 {
 }
 
 .telegram-btn {
-    background: rgba(27, 27, 27, 0.9);
+    background: rgba(0, 162, 255, 0.9);
     color: white;
 }
 
 .telegram-btn:hover {
-    background: rgba(27, 27, 27, 0.9);
+    background: rgba(0, 162, 255, 0.9);
+}
+
+.tiktok-btn {
+    background: linear-gradient(45deg, #000000, #FE2C55);
+    color: white;
+}
+
+.tiktok-btn:hover {
+    background: linear-gradient(45deg, #000000, #FE2C55);
 }
