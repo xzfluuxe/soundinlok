@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.9), rgba(80, 80, 80, 0.9)),
+        url('fon.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.glowing-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 0 0 15px #ffffff;
+    margin-bottom: 2rem;
+    animation: glow 1.5s infinite alternate;
+}
+
+.content-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.link-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#sound-link {
+    flex: 1;
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#sound-link:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.copy-btn {
+    padding: 12px 25px;
+    background: #7289da;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: #5b6eae;
+    transform: translateY(-2px);
+}
+
+.back-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    backdrop-filter: blur(5px);
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(165, 166, 172, 0.3);
+    }
+    to {
+        text-shadow: 0 0 20px #dadada,
+                     0 0 30px rgba(224, 224, 224, 0.4);
+    }
+}

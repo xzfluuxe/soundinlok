@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord | Soundinlok</title>
+    <link rel="stylesheet" href="dsc.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="mainSound" src="sounds/mp/a.mp3" autoplay></audio>
+
+    <div class="login-box animate-fade-in">
+        <h1 class="animate-title">SOUNDINLOK!</h1>
+        <div class="button-container">
+            <a href="https://t.me/rickowenstao" class="action-btn telegram-btn animate-btn-delay-2">Telegram</a>
+        </div>
+    </div>
+    <audio id="audio" src="a.mp3" autoplay></audio>
+
+    <script>
+
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('audio');
+            audio.volume = 1.0; 
+            audio.play() 
+                });
+    </script>
+
+    <script>
+
+        document.getElementById('audio').addEventListener('play', function() {
+            console.log('Звук воспроизводится');
+        });
+
+
+        document.getElementById('audio').addEventListener('error', function() {
+            console.error('Ошибка воспроизведения звука. ');
+        });
+    </script>
+</body>
+</html>

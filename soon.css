@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.9), 
+        rgba(80, 80, 80, 0.9)),
+        url('fon.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.glowing-title {
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    margin-bottom: 3rem;
+    animation: glow 2s infinite alternate;
+    letter-spacing: 2px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    width: 400px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255,255,255,0.7),
+                     0 0 30px rgba(255,255,255,0.4);
+    }
+}
