@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Смех | Soundinlok</title>
+    <link rel="stylesheet" href="ston.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="glowing-title">СМЕХ</h1>
+        
+        <div class="content-box">
+            <div class="link-container">
+                <a href="mp/smeh.html" id="sound-link">Ссылка</a>
+                <button class="copy-btn" onclick="copyLink()">Коп.</button>
+            </div>
+        </div>
+
+        <div class="back-container">
+            <a href="javascript:history.back()" class="back-btn">HA3AД</a>
+        </div>
+    </div>
+
+    <script>
+        function copyLink() {
+            const link = document.getElementById('sound-link');
+            navigator.clipboard.writeText(link.href)
+                .then(() => alert('Ссылка скопирована!'))
+                .catch(err => console.error('Ошибка:', err));
+        }
+    </script>
+</body>
+</html>

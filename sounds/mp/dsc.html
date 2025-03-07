@@ -5,37 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discord | Soundinlok</title>
     <link rel="stylesheet" href="dsc.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet>
 </head>
 <body>
-    <audio id="mainSound" src="sounds/mp/dsc.mp3" autoplay></audio>
-
     <div class="login-box animate-fade-in">
         <h1 class="animate-title">SOUNDINLOK!</h1>
         <div class="button-container">
             <a href="https://t.me/rickowenstao" class="action-btn telegram-btn animate-btn-delay-2">Telegram</a>
         </div>
     </div>
-    <audio id="audio" src="dsc.mp3" autoplay></audio>
+
+    <audio id="audioPlayer" src="dsc.mp3"></audio>
 
     <script>
+        // Создаем скрытую кнопку для симуляции взаимодействия
+        const fakeButton = document.createElement('button');
+        fakeButton.style.display = 'none';
+        document.body.appendChild(fakeButton);
 
-        document.addEventListener('click', function() {
-            var audio = document.getElementById('audio');
-            audio.volume = 1.0; 
-            audio.play() 
+        // Функция для симуляции пользовательского взаимодействия
+        const simulateInteraction = () => {
+            const event = new MouseEvent('click', {
+                view: window,
+                bubbles: true,
+                cancelable: true
+            });
+            
+            fakeButton.dispatchEvent(event);
+            fakeButton.focus();
+        };
+
+        // Первая попытка воспроизведения при загрузке
+        const tryPlay = () => {
+            const audio = document.getElementById('audioPlayer');
+            audio.volume = 1.0;
+            
+            const promise = audio.play();
+            if (promise !== undefined) {
+                promise.catch(() => {
+                    // Если воспроизведение заблокировано, симулируем клик
+                    simulateInteraction();
+                    setTimeout(tryPlay, 100);
                 });
-    </script>
+            }
+        };
 
-    <script>
+        // Инициализация через небольшой таймаут
+        setTimeout(() => {
+            tryPlay();
+            
+            // Периодическая проверка статуса воспроизведения
+            const checkInterval = setInterval(() => {
+                const audio = document.getElementById('audioPlayer');
+                if (audio.paused) {
+                    simulateInteraction();
+                    audio.play();
+                } else {
+                    clearInterval(checkInterval);
+                }
+            }, 500);
+        }, 1000);
 
-        document.getElementById('audio').addEventListener('play', function() {
+        // Обработчики событий
+        document.getElementById('audioPlayer').addEventListener('play', () => {
             console.log('Звук воспроизводится');
         });
 
-
-        document.getElementById('audio').addEventListener('error', function() {
-            console.error('Ошибка воспроизведения звука. ');
+        document.getElementById('audioPlayer').addEventListener('error', (e) => {
+            console.error('Ошибка воспроизведения:', e);
         });
     </script>
 </body>
